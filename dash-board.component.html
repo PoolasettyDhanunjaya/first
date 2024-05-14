@@ -1,0 +1,29 @@
+<div class="notification-container">
+    <div class="notification-icon" (mouseenter)="showNotifications = true" (mouseleave)="showNotifications = false">
+        <img src="https://img.icons8.com/pastel-glyph/64/000000/bell--v2.png" alt="Notification Bell Icon">
+        <span class="notification-count" *ngIf="notificationCount > 0">{{ notificationCount }}</span>
+    </div>
+    <div *ngIf="showNotifications" class="notification-popup">
+      <table style="margin-top: 50px; border-collapse: collapse; border: 2px solid black;">
+        <thead>
+          <tr>
+            <th style="border: 1px solid black;">Order Number</th>
+            <th style="border: 1px solid black;">Order Item Number</th>
+            <th style="border: 1px solid black;">User ID</th>
+            <th style="border: 1px solid black;">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let item of siganlRmessage">
+            <tr>
+              <td style="border: 1px solid black;">{{ item.orderNumber }}</td>
+              <td style="border: 1px solid black;">{{ item.orderItemNumber }}</td>
+              <td style="border: 1px solid black;">{{ item.correlationId }}</td>
+              <td style="border: 1px solid black;">{{ item.status }}</td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
